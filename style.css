@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body *{
+    font-family: 'Poppins', sans-serif;
+    margin: auto;
+    color: #e0e0e0;
+}
+
+body{
+    color: #fffefe;
+    background-color: #1d1d1d;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+
+header i{
+    font-size: 2rem;
+    margin-right: .5rem;
+}
+
+header h1{
+    font-family: 'Noto Sans Chorasmian', sans-serif;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+.buttonInput{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    
+}
+
+header input{
+    background-color: #0f363c;
+    border: 0;
+    height: 3.8rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0 .8rem;
+}
+
+header button{
+    background-color: #0a7ca2;
+    padding: .6rem 2rem .6rem 2rem;
+    border-radius: 5px;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+header button:hover{
+    background-color: #03789e;
+}
+
+
+table{
+    width: 75%;
+    border-collapse: collapse;
+    border: 1px solid #176e88;
+   
+}
+
+table th{ 
+    background-color: #092d38;
+    padding-block: .5rem;
+    padding-block: 1.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+
+table td{
+    text-align: center;
+    padding-block: 2rem;
+    font-size: 1.3rem;
+}
+
+table .avatar{
+    width: 100px;
+    height: 100px;
+}
+
+table a{
+    text-decoration: none;
+}
+
+table .user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: #e0e0e0;
+}
+
+table .username{
+    color: #e0e0e0;
+
+}
+
+.cancelar{
+    background: none;
+    border: 0;
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 700;
+
+}
+
+
