@@ -1,6 +1,5 @@
 import { GithubUser } from "./GithubUser.js";
 
-
 // Classe para logica dos dados
 export class FavoritesLogic {
     constructor(){
@@ -8,16 +7,36 @@ export class FavoritesLogic {
 
     async addFavoriteOn(username){
 
-        // Função de validação - usuário existe
-
+        if(this.ifUserAlreadyIn(username)){
+            alert("Usuário já adicionado!")
+            return
+        }
+        
         const user = await GithubUser.searchForUser(username)
 
-        // Função de validação - usuário não encontrado
+        if(this.ifUserExists(user)){
+            alert("Usuário não existe!")
+            return
+        }
 
         this.entries = [user, ...this.entries]
 
         this.updateList()
         
+    }
+
+    ifUserAlreadyIn(username){
+        return this.entries.find( user => user.login === username)
+    }
+
+    ifUserExists(user){
+        return user.name === undefined
+    }
+
+    removeUser(user){
+        this.entries = this.entries.filter(entry => entry.login !== user.login)
+
+        this.updateList()
     }
     
 }
@@ -41,17 +60,26 @@ export class FavoritesHTML extends FavoritesLogic {
         }
     }
 
+    removeEvent(row, user){
+        row.querySelector('.removeButton').onclick = () => {
+            this.removeUser(user)
+        }
+    }
+
     updateList(){
-        this.entries.forEach(entry => {
+        document.querySelector('tbody').innerHTML = ''
+
+        this.entries.forEach(user => {
             const row = this.createRow()
 
-            row.querySelector('.link').href = `https://github.com/${entry.login}`
-            row.querySelector('.avatar').src = `https://github.com/${entry.login}.png`
-            row.querySelector('.name').textContent = `${entry.name}`
-            row.querySelector('.username').textContent = `${entry.login}`
-            row.querySelector('.repositories').textContent = `${entry.public_repos}`
-            row.querySelector('.followers').textContent = `${entry.followers}`
+            row.querySelector('.link').href = `https://github.com/${user.login}`
+            row.querySelector('.avatar').src = `https://github.com/${user.login}.png`
+            row.querySelector('.name').textContent = `${user.name}`
+            row.querySelector('.username').textContent = `${user.login}`
+            row.querySelector('.repositories').textContent = `${user.public_repos}`
+            row.querySelector('.followers').textContent = `${user.followers}`
 
+            this.removeEvent(row, user)
 
             document.querySelector('tbody').append(row)
         })
@@ -72,12 +100,13 @@ export class FavoritesHTML extends FavoritesLogic {
         <td class="repositories"></td>
         <td class="followers"></td>
         <td>
-            <button class="cancelar">Cancelar</button>
+            <button class="removeButton">Cancelar</button>
         </td>
         </tr>
         `
         return tr;
     }
+
 }
 
 

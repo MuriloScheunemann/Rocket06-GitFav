@@ -12,7 +12,8 @@ body *{
 
 body{
     color: #fffefe;
-    background-color: #1d1d1d;
+    background-color: #151515;
+    
 }
 
 :root{
@@ -70,55 +71,75 @@ header button:hover{
 
 table{
     width: 75%;
-    border-collapse: collapse;
     border: 1px solid #176e88;
+    border-radius: 20px;
+    overflow: hidden;
+    border-spacing: 0;
    
 }
 
 table th{ 
     background-color: #092d38;
-    padding-block: .5rem;
     padding-block: 1.5rem;
     font-size: 1.3rem;
     letter-spacing: 1px;
+    text-align: left;
 }
 
+table .th-user{
+    padding-left: 2rem;
+    border-radius: 20px 0 0
+}
+
+table .th-action{
+    border-radius: 0 20px 0 0;
+}
 
 table td{
-    text-align: center;
+    text-align: left;
     padding-block: 2rem;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 table .avatar{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    border-radius: 50%;
 }
 
 table a{
     text-decoration: none;
+    margin: 0;
 }
 
 table .user{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 15px;
 
     color: #e0e0e0;
 }
 
 table .username{
-    color: #e0e0e0;
-
+    font-weight: 500;
 }
 
-.cancelar{
+
+table tr:nth-child(odd) {
+    background: #092024;
+}
+
+.removeButton{
     background: none;
     border: 0;
-    color: red;
+    color: #f45966;
     font-size: 1.2rem;
     font-weight: 700;
 
+    cursor: pointer;
 }
 
 

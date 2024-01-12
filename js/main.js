@@ -1,3 +1,3 @@
-import { FavoritesHTML } from './github.js'
+import { FavoritesHTML } from './favorites.js'
 
-new FavoritesHTML('#app')
+new FavoritesHTML()
